@@ -17,15 +17,61 @@
     </p>
 
     <script>
-        let myAge = 40;
+        let myAge = 41;
         let daysInYear = 365;
         let monsInYear = 12;
         let daysAlive = (myAge * daysInYear);
         let monsAlive = (monsInYear * myAge);
-        console.log ("I have been alive " + daysAlive + " days.")
-        console.log ("I have been alive " + monsAlive + " months.")
+        console.log("I've been alive for " + monsAlive + " months.")
+        console.log("I've been alive for " + daysAlive + " days.")
 
-    </script>
+   </script>
+
+<script>
+    let currYear
+    let dateOfBirth
+    let secsInYear
+    let secsThisYear
+    let yearsAlive = currYear - dateOfBirth
+    let currMon
+    
+    //Get Current Year, Birth Year, and current month
+    currYear = new Date().getFullYear()
+    console.log(currYear + " is the Current Year")
+    secsInYear = (365 * 24 * 60 * 60)
+    secsInMon = (30 * 24 * 60 * 60)
+    currMon = new Date().getMonth() + 1
+    console.log(currMon + " is the Current Month")
+    let birthYear = 1980
+
+    //2. & 5. Calc Secs in a Year & Cal. Sec. in a Month
+    console.log(secsInYear + " Seconds in a Year") //Source: http://en.wikipedia.org/wiki/Year
+
+    //3. Calc. Num of Full Yrs since Birth
+    let fullYear = currYear - birthYear - 1
+    console.log(fullYear + " years alive.")
+    
+    // 4. Multiply Full Year by number of sec in Year
+    let secsUpToCurrYear = fullYear * secsInYear
+    let secsSinceYear = currMon * secsInMon
+    console.log(secsUpToCurrYear + " seconds up to this Year.")
+    
+    //6. Sum the seconds to get our total
+    let secsAlive = secsUpToCurrYear + secsSinceYear 
+    
+
+    //7. Output the total
+    let secsAliveLocale = secsAlive.toLocaleString()
+    let message = "<h2>Your Birth Year: "  
+            + birthYear 
+            + "</h2><h2>And that is around "
+            +    secsAliveLocale 
+            +   " many seconds since your birth</h2>"
+            
+    console.log(secsAlive + " estimated seconds Alive.")
+    document.write("<h2>I am " + secsAliveLocale + " seconds alive.</h2>")
+    document.write(message)
+</script>
 
 </body>
 </html>
